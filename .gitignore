@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Database (created automatically on first run)
+backend/database/*.db
+backend/database/*.sqlite3
+
+# Node / Vite
+node_modules/
+frontend/dist/
+.vite/
+
+# Local tooling
+.tools/
+
+# Environment
+.env
+.env.local
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
