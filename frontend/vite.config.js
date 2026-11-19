@@ -1,17 +1,29 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// The dev server proxies /api to the Flask backend, so the browser talks to a
-// single origin and the session cookie works without any CORS surprises.
 export default defineConfig({
   plugins: [react()],
+
+  // GitHub Pages deployment base path
+  base: "/account-statement-generator/",
+
+  // Local development server configuration
   server: {
+    host: "0.0.0.0",
     port: 5173,
     proxy: {
       "/api": {
         target: "http://127.0.0.1:5000",
         changeOrigin: true,
+        secure: false,
       },
     },
+  },
+
+  // Production build configuration
+  build: {
+    outDir: "dist",
+    sourcemap: false,
   },
 });
